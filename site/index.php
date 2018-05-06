@@ -1,4 +1,5 @@
-<?php 
+<?php
+	include("funcoes.php");
 	include("cabecalho.php");
 ?>
 		<div>
@@ -6,6 +7,6 @@
 				Informações sobre o sistema.
 			</p>
 		</div>
-<?php 
+<?php
 	include("rodape.php");
 ?>

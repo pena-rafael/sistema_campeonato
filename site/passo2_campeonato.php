@@ -1,4 +1,5 @@
 <?php
+include("funcoes.php");
 include("cabecalho.php");
 
 if(isset($_POST["tipo"])){

@@ -92,3 +92,5 @@ CREATE TABLE partidas (
   ponto2 int,
   primary key (id_campeonato, id)
 ) ENGINE=InnoDB;
+
+INSERT INTO usuario (id, nome, usuario, senha, email) VALUES (0,'Rafael Pena', 'rafael', '997427852', 'rafamaic1337@gmail.com')

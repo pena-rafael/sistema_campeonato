@@ -6,10 +6,10 @@
 	<body>
 		<nav>
 			<?php
-			if(!isset($_SESSION["logado"])){
+			if(!isset($_SESSION["usuario"])){
 			?>
 			<a href="index.php">Início</a>	|
-			<a href="cadastro.php">Cadastrar</a>	|
+			<a href="cadastroCliente.php">Cadastrar</a>	|
 			<a href="login.php">Login</a>
 			<?php
 			} else{

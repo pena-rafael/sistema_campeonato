@@ -1,6 +1,6 @@
 <?php
-	include ("cabecalho.php");
-	include ("funcoes.php");
+	include("funcoes.php");
+	include("cabecalho.php");
 	if(empty($_POST)){
 		form_cadastro();
 	}else{

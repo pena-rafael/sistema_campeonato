@@ -1,4 +1,5 @@
 <?php
+include("funcoes.php");
 include("cabecalho.php");
 ?>
 <div class="campeonato">
