@@ -19,15 +19,15 @@ if(isset($_POST["tipo"])){
         time = parseInt(time) + 1;
         //alert(typeof(time));
         document.getElementById("times").innerHTML += "\
-          <div id='time"+time+"'>\
+          <div class='time' id='time"+time+"'>\
             <div>\
               <label> Nome do Time: </label>\
               <input type='text' max='100' name='nome_campeonato[]'/>\
             </div>\
             <label>Jogadores</label>\
-            <div id='jogadores"+ time +"'>\
+            <div class='jogadores' id='jogadores"+ time +"'>\
               <div>\
-                <input type='text' max='100' name='nome_jogador"+ time +"[]'/>\
+                <input type='text' max='100' name='nome_jogador"+ time +"[]' placeholder='Nome do Jogador'/>\
                 <button type='button' onclick='addjogador(this.value)' value='"+ time +"'>+</button>\
               </div>\
             </div>\
@@ -40,7 +40,7 @@ if(isset($_POST["tipo"])){
       function addjogador(time) {
         document.getElementById("jogadores"+time+"").innerHTML += "\
           <div id='jogador"+time + jogador+"'>\
-            <input type='text' max='100' name='nome_jogador"+ time +"[]'/>\
+            <input type='text' max='100' name='nome_jogador"+ time +"[]' placeholder='Nome do Jogador'/>\
             <button type='button' onclick='addjogador(this.value)' value='"+ time +"'>+</button>\
             <button type='button' onclick='remjogador(this.value)' value='"+ time + jogador +"'>-</button>\
           </div>\
@@ -60,15 +60,15 @@ if(isset($_POST["tipo"])){
     </script>
     <form action="registra_campeonato.php" method="post">
       <div id="times">
-        <div id="time0">
+        <div class='time' id="time0">
           <div>
             <label> Nome do Time: </label>
             <input type="text" max="100" name="nome_campeonato[]"/>
           </div>
           <label>Jogadores</label>
-          <div id="jogadores0">
+          <div class="jogadores" id="jogadores0">
             <div id="jogador00">
-              <input type="text" max="100" name="nome_jogador0[]"/>
+              <input type="text" max="100" name="nome_jogador0[]" placeholder='Nome do Jogador'/>
               <button type="button" onclick="addjogador(this.value)" value="0">+</button>
             </div>
           </div>

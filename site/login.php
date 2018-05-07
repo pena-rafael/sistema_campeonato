@@ -6,7 +6,7 @@ if(isset($_POST["usuario"])) {
 		header("location: ver_campeonatos.php");
 	} else {
 		include("cabecalho.php");
-		echo "Usuário ou senha incorreto. <a href='login.php'>Tente novamente</a>";
+		echo "<span class='erro'>Usuário ou senha incorreto. <a href='login.php'>Tente novamente</a></span>";
 		include("rodape.php");
 	}
 } else {
@@ -26,10 +26,7 @@ if(isset($_POST["usuario"])) {
 			</label>
 			<input type = "password" name = "senha" required = "required"/>
 		</div>
-		<div>
-			<input type = "submit" value = "Confirmar" />
-			<input type = "reset" value = "Limpar" />
-		</div>
+		<input type = "submit" value ="Logar" />
 
 	</form>
 </div>

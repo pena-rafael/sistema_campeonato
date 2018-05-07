@@ -2,12 +2,94 @@
 include("funcoes.php");
 include("cabecalho.php");
 ?>
-<div class="campeonato">
-  <div class="imagem">
-    <img src="C:\Users\Rafael Pena\Downloads\pug.jpg"/>
-  </div>
-  <div class="titulo">
-      <h3> CampIF </h3>
+<script>
+var posicao_vertical = 0;
+function scrolldireita(numero_de_campeonatos) {
+  max = parseInt(numero_de_campeonatos)*300;
+  tamanho = document.getElementById("campeonatos").clientWidth - 30*numero_de_campeonatos + 10;
+  max =  parseInt(max) - parseInt(tamanho);
+  if(posicao_vertical + 300>max) {
+    posicao_vertical = max + 8;
+  } else {
+    posicao_vertical = posicao_vertical + 334;
+  }
+  animateScrollTo(posicao_vertical,{ element: document.getElementById("campeonatos"), horizontal: true });
+  //document.getElementById("campeonatos").scrollTo(posicao_vertical, 0);
+}
+function scrollesquerda(numero_de_campeonatos) {
+  if(posicao_vertical - 330 < 0) {
+    posicao_vertical = 0;
+  } else {
+    posicao_vertical = posicao_vertical - 334;
+  }
+  animateScrollTo(posicao_vertical,{ element: document.getElementById("campeonatos"), horizontal: true });
+  //document.getElementById("campeonatos").scrollTo(posicao_vertical, 0);
+}
+</script>
+<div id="campeonatos" class="campeonatos">
+  <button class="esquerda" onclick="scrollesquerda(6)"></button>
+  <button class="direita" onclick="scrolldireita(6)"></button>
+  <div class="aux_camp">
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
+    <div class="campeonato">
+      <a href="ver_campeonato.php">
+        <div class="imagem">
+          <img src="teste.jpg"/>
+        </div>
+        <div class="titulo">
+            <h3> CampIF 1 </h3>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 <?php
