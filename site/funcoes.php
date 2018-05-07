@@ -27,11 +27,7 @@ function form_cadastro(){
 				<label> Senha: </label>
 				<input type = "password" name = "senha" required = "required"/>
 			</div>
-
-			<div>
-				<input type = "submit" value = "Enviar" />
-				<input type = "reset" value = "Limpar" />
-			</div>
+			<input type = "submit" value = "Cadastrar" />
 		</form>
 	</div>';
 }
@@ -60,7 +56,7 @@ function ler_dados_salvar(){
 
 		header("Location: login.php");
 	} else {
-		echo "Usuário já existente";
+		echo "<span class='erro'>Usuário já existente</span>";
 		form_cadastro();
 	}
 }

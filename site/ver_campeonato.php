@@ -1,14 +1,20 @@
 <?php
+$content = false;
 include("funcoes.php");
 include("cabecalho.php");
 ?>
-<div class="campeonato">
+<div class="ver_campeonato">
   <div class="imagem">
-    <img src="C:\Users\Rafael Pena\Downloads\pug.jpg"/>
+    <img src="teste.jpg"/>
   </div>
-  <div class="titulo">
-      <h3> CampIF </h3>
-  </div>
+  <content>
+    <div class="titulo">
+      <h2> CampIF 1 </h2>
+    </div>
+    <div class="informacoes">
+      <p>Informações</p>
+    </div>
+  </content>
 </div>
 <?php
 include("rodape.php");

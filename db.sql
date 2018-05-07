@@ -93,4 +93,7 @@ CREATE TABLE partidas (
   primary key (id_campeonato, id)
 ) ENGINE=InnoDB;
 
-INSERT INTO usuario (id, nome, usuario, senha, email) VALUES (0,'Rafael Pena', 'rafael', '997427852', 'rafamaic1337@gmail.com')
+INSERT INTO usuario (id, nome, usuario, senha, email) VALUES (0,'Rafael Pena', 'rafael', '997427852', 'rafamaic1337@gmail.com');
+
+CREATE USER 'champion'@'localhost' IDENTIFIED WITH mysql_native_password AS 'vowAVdnEyTy5QooT';
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'champion'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;

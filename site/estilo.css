@@ -1,0 +1,275 @@
+/* Resetar estilo navegador */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  text-decoration: none;
+  outline: 0px;
+  max-width: 100%;
+}
+body {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5d68e+0,f2e8b5+100 */
+  background: #e5d68e; /* Old browsers */
+  background: -moz-linear-gradient(top, #e5d68e 0%, #f2e8b5 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #e5d68e 0%,#f2e8b5 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #e5d68e 0%,#f2e8b5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5d68e', endColorstr='#f2e8b5',GradientType=0 ); /* IE6-9 */
+}
+/* Cabeçalho */
+header {
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0px 0px 10px gray;
+}
+header h1 {
+  font-weight: 100;
+  font-size: 4em;
+  text-align: center;
+}
+header nav {
+  width: 100%;
+  text-align: center;
+}
+header nav a {
+  display: inline-block;
+  padding: 12px 17px;
+  transition: background 0.5s;
+}
+header nav a:hover {
+  background: #f0f0f0;
+}
+/* Corpo */
+content {
+  width: 900px;
+  max-width: 90%;
+  margin: 30px auto;
+  background: white;
+  display: block;
+  box-shadow: 0px 0px 10px gray;
+  padding: 30px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0px;
+}
+/* Formulários */
+form {
+  margin-bottom: 80px;
+}
+form>div {
+  display: inline-block;
+  width: 48%;
+  margin-top: 2%;
+}
+form>div:nth-of-type(odd) {
+  padding-right: 2%;
+}
+form>div label {
+  width: 100%;
+  display: block;
+  font-size: 18px;
+}
+form>div input[type="text"], form>div input[type="number"], form>div input[type="email"], form>div input[type="password"] {
+  width: 100%;
+  display: block;
+  border: 0px solid black;
+  border-bottom: 2px solid #f0f0f0;
+  transition: border 0.5s;
+  height: 30px;
+}
+form>div input[type="text"]:focus, form>div input[type="number"]:focus, form>div input[type="email"]:focus, form>div input[type="password"]:focus {
+  border-bottom: 2px solid #cecece;
+}
+form input[type="submit"] {
+  display: block;
+  margin: 30px auto 0px;
+  background: #efefef;
+  color: black;
+  box-shadow: 0px 0px 0px grey;
+  border: 0px solid black;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  position: absolute;
+  bottom: -25px;
+  right: 60px;
+}
+form input[type="submit"]:hover {
+  box-shadow: 0px 0px 10px gray;
+}
+form input[type="submit"]:after {
+  content: "\A"; white-space: pre-line;
+}
+span.erro {
+  color: red;
+  background: #ffcece;
+  padding: 10px;
+  border-radius: 0px;
+  position: relative;
+  display: block;
+}
+/* Ver campeonato */
+div.campeonatos {
+  display: block;
+  width: 100%;
+  overflow:hidden;
+}
+div.aux_camp {
+  width: 99999px;
+  max-width: 99999px;
+  padding: 0px 15px;
+  margin: 0px -30px;
+}
+div.campeonato {
+  display: inline-block;
+  width: 300px;
+  padding: 0px 15px;
+  margin-top: 10px;
+}
+div.campeonato div.imagem {
+  overflow: hidden;
+  width:300px;
+  height: 300px;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px gray;
+  transition: box-shadow 0.5s;
+}
+div.campeonato a:hover div.imagem {
+  box-shadow: 5px 5px 5px gray;
+}
+div.campeonato div.imagem img {
+  min-width: 100%;
+  max-height: 300px;
+  width: auto;
+  max-width: 999999px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+div.campeonato div.titulo {
+  text-align: center;
+}
+.campeonatos button {
+  position: absolute;
+  background-color: transparent;
+  opacity: 0.4;
+  top: 50%;
+  z-index: 1;
+  transition: opacity 0.5s;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.campeonatos button:hover {
+  opacity: 0.8;
+}
+.campeonatos button.direita {
+  right: 15px;
+  border-left: 20px solid black;
+  border-right: 0px solid black;
+}
+.campeonatos button.esquerda {
+  left: 15px;
+  border-right:20px solid black;
+  border-left: 0px solid black;
+}
+/* Ver o campeonato */
+.ver_campeonato .imagem img {
+  width: 100%;
+}
+.ver_campeonato content {
+  border-radius: 0px;
+  margin: 0px auto 30px;
+}
+/* Cadastrar Campeonato */
+.cadastrar_campeonato {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+.cadastrar_campeonato a {
+  display: inline-block;
+  padding: 30px;
+  margin: 0px 10px;
+  background-color: white;
+  box-shadow: 0px 0px 5px grey;
+  font-size: 50px;
+  font-weight: 100;
+  transition: background 0.5s, box-shadow 0.5s;
+}
+.cadastrar_campeonato a:hover {
+  box-shadow: 0px 0px 15px grey;
+}
+form>div#times {
+  display: block;
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px;
+}
+form>div#times .time {
+  display: block;
+  width: 100%;
+  margin-top: 2%;
+}
+form>div#times .time .jogadores>div {
+  position: relative
+}
+form>div#times .time .jogadores>div>button:nth-of-type(odd) {
+  position:absolute;
+  right: 30px;
+  bottom: 0px;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+form>div#times .time .jogadores>div>button:nth-of-type(even) {
+  position:absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+form>div#times .time {
+  position: relative;
+  margin-bottom: 45px;
+}
+form>div#times .time>button:nth-of-type(odd) {
+  position:absolute;
+  left: 40px;
+  bottom: -45px;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  transform: translateX(-45px);
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+form>div#times .time>button:nth-of-type(even) {
+  position:absolute;
+  left: 40px;
+  bottom: -45px;
+  height: 40px;
+  width: 40px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  border: 0px;
+  cursor: pointer;
+  transform: translateX(5px);
+}
