@@ -6,19 +6,28 @@ if(isset($_POST["tipo"])){
   echo "<h2>".$_POST["nome_campeonato"]."</h2>";
   ?>
     <script>
-      Element.prototype.remove = function() {;
-      }
-      NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-        for(var i = this.length - 1; i >= 0; i--) {
-            if(this[i] && this[i].parentElement) {
-                this[i].parentElement.removeChild(this[i]);
-            }
-        }
-      }
       function addtimes(time) {
         time = parseInt(time) + 1;
         //alert(typeof(time));
-        document.getElementById("times").innerHTML += "\
+        var div = document.createElement("div");
+        div.className = "time";
+        div.id = "time"+time;
+        div.innerHTML = "<div>\
+          <label> Nome do Time: </label>\
+          <input type='text' max='100' name='nome_campeonato[]'/>\
+        </div>\
+        <label>Jogadores</label>\
+        <div class='jogadores' id='jogadores"+ time +"'>\
+          <div>\
+            <input type='text' max='100' name='nome_jogador"+ time +"[]' placeholder='Nome do Jogador'/>\
+            <button type='button' onclick='addjogador(this.value)' value='"+ time +"'>+</button>\
+          </div>\
+        </div>\
+        <button type='button' onclick='addtimes(this.value)' value='"+ time +"'>+</button>\
+        <button type='button' onclick='remtimes(this.value)' value='"+ time +"'>-</button>";
+
+        document.getElementById("times").appendChild(div);
+        /*document.getElementById("times").innerHTML += "\
           <div class='time' id='time"+time+"'>\
             <div>\
               <label> Nome do Time: </label>\
@@ -34,17 +43,17 @@ if(isset($_POST["tipo"])){
             <button type='button' onclick='addtimes(this.value)' value='"+ time +"'>+</button>\
             <button type='button' onclick='remtimes(this.value)' value='"+ time +"'>-</button>\
           </div>\
-        ";
+        ";*/
       }
       var jogador = 1;
       function addjogador(time) {
-        document.getElementById("jogadores"+time+"").innerHTML += "\
-          <div id='jogador"+time + jogador+"'>\
-            <input type='text' max='100' name='nome_jogador"+ time +"[]' placeholder='Nome do Jogador'/>\
-            <button type='button' onclick='addjogador(this.value)' value='"+ time +"'>+</button>\
-            <button type='button' onclick='remjogador(this.value)' value='"+ time + jogador +"'>-</button>\
-          </div>\
-        ";
+        var div = document.createElement("div");
+        div.id = "jogador"+time + jogador;
+        div.innerHTML =  "\
+          <input type='text' max='100' name='nome_jogador"+ time +"[]' placeholder='Nome do Jogador'/>\
+          <button type='button' onclick='addjogador(this.value)' value='"+ time +"'>+</button>\
+          <button type='button' onclick='remjogador(this.value)' value='"+ time + jogador +"'>-</button>";
+        document.getElementById("jogadores"+time+"").appendChild(div);
         jogador = jogador + 1;
       }
       function remtimes(time) {

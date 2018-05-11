@@ -182,8 +182,10 @@ div.campeonato div.titulo {
   border-left: 0px solid black;
 }
 /* Ver o campeonato */
-.ver_campeonato .imagem img {
-  width: 100%;
+.ver_campeonato .imagem {
+  height: 300px;
+  background-size: 100% auto;
+  background-attachment: fixed;
 }
 .ver_campeonato content {
   border-radius: 0px;

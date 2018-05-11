@@ -4,8 +4,7 @@ include("funcoes.php");
 include("cabecalho.php");
 ?>
 <div class="ver_campeonato">
-  <div class="imagem">
-    <img src="teste.jpg"/>
+  <div class="imagem" style="background-image:url('teste.jpg')">
   </div>
   <content>
     <div class="titulo">
