@@ -191,6 +191,39 @@ div.campeonato div.titulo {
   border-radius: 0px;
   margin: 0px auto 30px;
 }
+ul {
+  list-style-type: none;
+}
+ul li {
+}
+.chave {
+  display: inline-block;
+    vertical-align: top;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    background-color: white;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    position: absolute;
+}
 /* Cadastrar Campeonato */
 .cadastrar_campeonato {
   text-align: center;
@@ -274,4 +307,12 @@ form>div#times .time>button:nth-of-type(even) {
   border: 0px;
   cursor: pointer;
   transform: translateX(5px);
+}
+table {
+  border-spacing: 0px;
+  border: 1px solid black;
+  width: 100%;
+}
+table * {
+  border: 1px solid black;
 }

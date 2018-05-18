@@ -149,24 +149,68 @@ function cadastro_time($nome_time, $jogadores) {
 	}
 }
 
-/*function fazer_chaves($id_campeonato){
+function fazer_chaves($id_campeonato){
 	$conexao = conexao();
-	$times = "SELECT * FROM times as t, participa as p WHERE t.id = p.id_time and p.id_campeonato = 4 ORDER BY RAND()";
+	/* Buscar Times do Campeonato */
+	$times = "SELECT * FROM times as t, participa as p WHERE t.id = p.id_time and p.id_campeonato = $id_campeonato ORDER BY RAND()";
 	$busca_times = mysqli_query($conexao, $times);
 
-	$tipo = "SELECT tipo FROM campeonatos WHERE id = $id_campeonato";
+	/* Buscar Tipo Campeonato */
+	$tipo = "SELECT tipo FROM campeonato WHERE id = $id_campeonato";
 	$busca_tipo = mysqli_query($conexao, $tipo);
+	//var_dump($busca_tipo);
 
-	$i = 1;
+	foreach ($busca_tipo as $i => $v) {
+		$tipo = $v["tipo"];
+	}
+
+	$indice = 1;
 
 	foreach($busca_times as $i=>$v) {
-		if($i%2==0) {
+		if($indice%2==0) {
+			/* Buscar ID */
+			$maxid = "SELECT MAX(id) as 'max' FROM chaves WHERE id_campeonato = $id_campeonato";
+			$maxid_sql = mysqli_query($conexao, $maxid);
+			foreach($maxid_sql as $j=>$v2) {
+				$max = $v2["max"];
+			}
+			$max++;
+
 			$time2 = $v["id"];
 			$add_chave = "INSERT INTO chaves(id_campeonato, tipo, time1, time2, vencedor, id)
-										VALUES($id_campeonato, )"
+										VALUES($id_campeonato, $tipo, $time1, $time2, NULL, $max)";
+			$add_chave_sql = mysqli_query($conexao, $add_chave);
+			//var_dump($add_chave_sql);
 		} else {
 			$time1 = $v["id"];
 		}
+		$indice++;
 	}
-}*/
+	if($indice%2==0){
+		/* Buscar ID */
+		$maxid = "SELECT MAX(id) as 'max' FROM chaves WHERE id_campeonato = $id_campeonato";
+		$maxid_sql = mysqli_query($conexao, $maxid);
+		foreach($maxid_sql as $j=>$v2) {
+			$max = $v2["max"];
+		}
+		$max++;
+
+		$time2 = $v["id"];
+		$add_chave = "INSERT INTO chaves(id_campeonato, tipo, time1, time2, vencedor, id)
+									VALUES($id_campeonato, $tipo, $time1, $time1, $time1, $max)";
+		$add_chave_sql = mysqli_query($conexao, $add_chave);
+	}
+}
+
+function busca($tabela,$coluna,$condicao){
+	$conexao = conexao();
+	$select = "SELECT $coluna from $tabela WHERE $condicao";
+	$busca = mysqli_query($conexao,$select);
+
+	foreach($busca as $i=>$v){
+		$resultado = $v[$coluna];
+	}
+
+	return($resultado);
+}
 ?>

@@ -55,10 +55,44 @@ if(isset($_GET["campeonato"])){
           </table>
           <?php
             if(mysqli_num_rows($busca_chaves)==0){
-              //fazer_chaves($id_campeonato);
-            } else {
-              //echo "Chaves";
+              fazer_chaves($id_campeonato);
+              $chaves = "SELECT * from chaves WHERE id_campeonato = $id_campeonato";
+              $busca_chaves = mysqli_query($conexao,$chaves);
             }
+            echo "Chaves";
+            echo "<ul>";
+            foreach($busca_chaves as $i=>$v){
+              $time1 = busca("times", "nome", "id=".$v["time1"]);
+              $time2 = busca("times", "nome", "id=".$v["time2"]);
+
+              $jogadores1 = "SELECT j.nome as 'Nome' from jogador as j, faz_parte as fp WHERE j.id = fp.id_jogador and fp.id_time=".$v["time1"];
+              //echo "$jogadores1";
+
+              $jogadores2 = "SELECT j.nome as 'Nome' from jogador as j, faz_parte as fp WHERE j.id = fp.id_jogador and fp.id_time=".$v["time2"];
+
+              $busca_jogadores1 = mysqli_query($conexao,$jogadores1);
+              $busca_jogadores2 = mysqli_query($conexao,$jogadores2);
+
+              echo "<li>";
+              echo "<div class='chave time1'>";
+              echo "<button class='accordion'>$time1</button>";
+              echo "<div class='panel'>";
+              foreach($busca_jogadores1 as $i=>$v){
+                echo "<div class='jogador'> ".$v["Nome"]."</div>";
+              }
+              echo "</div>";
+              echo "</div>";
+              echo "<div class='chave time2'>";
+              echo "<button class='accordion'>$time2</button>";
+              echo "<div class='panel'>";
+              foreach($busca_jogadores2 as $i=>$v){
+                echo "<div class='jogador'> ".$v["Nome"]."</div>";
+              }
+              echo "</div>";
+              echo "</div>";
+              echo "</li>";
+            }
+            echo "</ul>";
           ?>
         </div>
       </content>
@@ -68,3 +102,23 @@ if(isset($_GET["campeonato"])){
 }
 include("rodape.php");
 ?>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
