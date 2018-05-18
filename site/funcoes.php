@@ -5,6 +5,16 @@ function conexao() {
 	mysqli_select_db($conexao, "champions_maker");
 	return($conexao);
 }
+function maior_id($tabela) {
+	$conexao = conexao();
+
+	$maxid = "SELECT MAX(id) as 'max' FROM $tabela";
+	$maxid_sql = mysqli_query($conexao, $maxid);
+	foreach($maxid_sql as $i=>$v) {
+		$max = $v["max"];
+	}
+	return($max);
+}
 function form_cadastro(){
 	echo '<div>
 		<form method = "POST" action = "cadastroCliente.php">
@@ -99,4 +109,64 @@ function sair() {
 	session_destroy();
 	echo "<script>location.reload();</script>";
 }
+
+function cadastro_campeonato($nome_campeonato, $tipo, $id_usuario) {
+	$conexao = conexao();
+
+	$maxid = "SELECT MAX(id) as 'max' FROM campeonato";
+	$maxid_sql = mysqli_query($conexao, $maxid);
+	foreach($maxid_sql as $i=>$v) {
+		$max = $v["max"];
+	}
+	$max = $max + 1;
+	$sql = "INSERT INTO campeonato(id, nome, tipo, id_usuario) VALUES($max, '$nome_campeonato', $tipo, $id_usuario)";
+	//echo $sql;
+	$busca = mysqli_query($conexao, $sql);
+}
+
+function cadastro_time($nome_time, $jogadores) {
+	$conexao = conexao();
+
+	$id_campeonato = maior_id("campeonato");
+	$id_time = maior_id("times");
+	$id_time = $id_time + 1;
+
+	$add_time = "INSERT INTO times(id, nome) VALUES($id_time, '$nome_time')";
+	$add_participa = "INSERT INTO participa(id_campeonato, id_time) VALUES($id_campeonato, $id_time)";
+
+	$executa_time = mysqli_query($conexao, $add_time);
+	$executa_participa = mysqli_query($conexao, $add_participa);
+
+	foreach($jogadores as $i=>$v) {
+		$id_jogador = maior_id("jogador");
+		$id_jogador++;
+
+		$add_jogador = "INSERT INTO jogador(id, nome) VALUES($id_jogador, '$v')";
+		$add_faz_parte = "INSERT INTO faz_parte(id_time, id_jogador) VALUES($id_time, $id_jogador)";
+
+		$executa_jogador = mysqli_query($conexao, $add_jogador);
+		$executa_faz_parte = mysqli_query($conexao, $add_faz_parte);
+	}
+}
+
+/*function fazer_chaves($id_campeonato){
+	$conexao = conexao();
+	$times = "SELECT * FROM times as t, participa as p WHERE t.id = p.id_time and p.id_campeonato = 4 ORDER BY RAND()";
+	$busca_times = mysqli_query($conexao, $times);
+
+	$tipo = "SELECT tipo FROM campeonatos WHERE id = $id_campeonato";
+	$busca_tipo = mysqli_query($conexao, $tipo);
+
+	$i = 1;
+
+	foreach($busca_times as $i=>$v) {
+		if($i%2==0) {
+			$time2 = $v["id"];
+			$add_chave = "INSERT INTO chaves(id_campeonato, tipo, time1, time2, vencedor, id)
+										VALUES($id_campeonato, )"
+		} else {
+			$time1 = $v["id"];
+		}
+	}
+}*/
 ?>

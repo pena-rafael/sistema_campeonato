@@ -14,7 +14,7 @@ if(isset($_POST["tipo"])){
         div.id = "time"+time;
         div.innerHTML = "<div>\
           <label> Nome do Time: </label>\
-          <input type='text' max='100' name='nome_campeonato[]'/>\
+          <input type='text' max='100' name='nome_time[]'/>\
         </div>\
         <label>Jogadores</label>\
         <div class='jogadores' id='jogadores"+ time +"'>\
@@ -72,7 +72,7 @@ if(isset($_POST["tipo"])){
         <div class='time' id="time0">
           <div>
             <label> Nome do Time: </label>
-            <input type="text" max="100" name="nome_campeonato[]"/>
+            <input type="text" max="100" name="nome_time[]"/>
           </div>
           <label>Jogadores</label>
           <div class="jogadores" id="jogadores0">
@@ -85,6 +85,7 @@ if(isset($_POST["tipo"])){
         </div>
       </div>
       <input type="hidden" value="<?php echo $_POST["tipo"]; ?>" name="tipo" />
+      <input type="hidden" value="<?php echo $_POST["nome_campeonato"]; ?>" name="nome_campeonato" />
       <input type="submit" value="Próximo"/>
     </form>
   <?php
