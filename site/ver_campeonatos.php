@@ -1,6 +1,12 @@
 <?php
 include("funcoes.php");
 include("cabecalho.php");
+$usuario = $_SESSION["usuario"];
+$conexao = conexao();
+
+$sql = "SELECT * FROM usuario WHERE id = '$usuario'";
+$resultado = mysqli_query($conexao, $sql);
+$linhas = mysqli_num_rows($resultado);
 ?>
 <script>
 var posicao_vertical = 0;
@@ -27,60 +33,13 @@ function scrollesquerda(numero_de_campeonatos) {
 }
 </script>
 <div id="campeonatos" class="campeonatos">
-  <button class="esquerda" onclick="scrollesquerda(6)"></button>
-  <button class="direita" onclick="scrolldireita(6)"></button>
+  <button class="esquerda" onclick="scrollesquerda(<?=$linhas;?>)"></button>
+  <button class="direita" onclick="scrolldireita(<?=$linhas;?>)"></button>
   <div class="aux_camp">
-    <div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> CampIF 1 </h3>
-        </div>
-      </a>
-    </div>
-    <div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> CampIF 1 </h3>
-        </div>
-      </a>
-    </div>
-    <div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> CampIF 1 </h3>
-        </div>
-      </a>
-    </div>
-    <div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> CampIF 1 </h3>
-        </div>
-      </a>
-    </div>
-    <div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> CampIF 1 </h3>
-        </div>
-      </a>
-    </div>
-    <div class="campeonato">
+    <?php 
+		
+	?>
+	<div class="campeonato">
       <a href="ver_campeonato.php">
         <div class="imagem">
           <img src="teste.jpg"/>
@@ -91,6 +50,9 @@ function scrollesquerda(numero_de_campeonatos) {
       </a>
     </div>
   </div>
+  <?php 
+	}
+  ?>
 </div>
 <?php
 include("rodape.php");
