@@ -1,5 +1,6 @@
 <?php
 include("funcoes.php");
+verificacao();
 include("cabecalho.php");
 
 if(isset($_GET["tipo"])){
