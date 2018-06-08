@@ -3,8 +3,11 @@ include("funcoes.php");
 include("cabecalho.php");
 
 if(isset($_POST["tipo"])){
-  echo "<h2>".$_POST["nome_campeonato"]."</h2>";
-  ?>
+?>
+	<h2><img src="<?=$_POST["nome_campeonato"];?>" alt="<?=$_POST["nome_campeonato"];?>"/></h2>
+	<?php 
+	echo "<h2>".$_POST["nome_campeonato"]."</h2>";
+	?>
     <script>
       function addtimes(time) {
         time = parseInt(time) + 1;

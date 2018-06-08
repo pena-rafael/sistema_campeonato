@@ -4,7 +4,7 @@ include("cabecalho.php");
 $usuario = $_SESSION["usuario"];
 $conexao = conexao();
 
-$sql = "SELECT * FROM usuario WHERE id = '$usuario'";
+$sql = "SELECT * FROM campeonato WHERE id_usuario = '$usuario'";
 $resultado = mysqli_query($conexao, $sql);
 $linhas = mysqli_num_rows($resultado);
 ?>
@@ -37,7 +37,7 @@ function scrollesquerda(numero_de_campeonatos) {
   <button class="direita" onclick="scrolldireita(<?=$linhas;?>)"></button>
   <div class="aux_camp">
     <?php 
-		
+	foreach($resultado as $i=>$v) {
 	?>
 	<div class="campeonato">
       <a href="ver_campeonato.php">
@@ -45,7 +45,7 @@ function scrollesquerda(numero_de_campeonatos) {
           <img src="teste.jpg"/>
         </div>
         <div class="titulo">
-            <h3> CampIF 1 </h3>
+            <h3> <?=$v["nome"];?> </h3>
         </div>
       </a>
     </div>
