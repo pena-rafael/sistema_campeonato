@@ -213,4 +213,11 @@ function busca($tabela,$coluna,$condicao){
 
 	return($resultado);
 }
+
+function verficacao{	
+	if(!isset ($_SESSION["usuario"])){
+		header("Location:erroAutentica.php");
+	}
+}
+
 ?>
