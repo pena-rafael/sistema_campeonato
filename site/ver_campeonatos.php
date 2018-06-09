@@ -36,23 +36,23 @@ function scrollesquerda(numero_de_campeonatos) {
   <button class="esquerda" onclick="scrollesquerda(<?=$linhas;?>)"></button>
   <button class="direita" onclick="scrolldireita(<?=$linhas;?>)"></button>
   <div class="aux_camp">
-    <?php 
+    <?php
 	foreach($resultado as $i=>$v) {
 	?>
 	<div class="campeonato">
-      <a href="ver_campeonato.php">
-        <div class="imagem">
-          <img src="teste.jpg"/>
-        </div>
-        <div class="titulo">
-            <h3> <?=$v["nome"];?> </h3>
-        </div>
-      </a>
-    </div>
+    <a href="ver_campeonato.php?campeonato=<?php echo $v["id"]; ?>">
+      <div class="imagem">
+        <img src="teste.jpg"/>
+      </div>
+      <div class="titulo">
+        <h3> <?=$v["nome"];?> </h3>
+      </div>
+    </a>
   </div>
-  <?php 
+  <?php
 	}
   ?>
+  </div>
 </div>
 <?php
 include("rodape.php");
