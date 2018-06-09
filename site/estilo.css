@@ -4,24 +4,19 @@
   padding: 0px;
   font-weight: 300;
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   text-decoration: none;
   outline: 0px;
   max-width: 100%;
 }
 body {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5d68e+0,f2e8b5+100 */
-  background: #e5d68e; /* Old browsers */
-  background: -moz-linear-gradient(top, #e5d68e 0%, #f2e8b5 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #e5d68e 0%,#f2e8b5 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #e5d68e 0%,#f2e8b5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5d68e', endColorstr='#f2e8b5',GradientType=0 ); /* IE6-9 */
+  background: #2b2b2b;
 }
 /* Cabeçalho */
 header {
-  background-color: white;
+  background-color: #232323;
   padding: 15px;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px black;
 }
 header h1 {
   font-weight: 100;
@@ -38,16 +33,16 @@ header nav a {
   transition: background 0.5s;
 }
 header nav a:hover {
-  background: #f0f0f0;
+  background: #444444;
 }
 /* Corpo */
 content {
   width: 900px;
   max-width: 90%;
   margin: 30px auto;
-  background: white;
+  background: #444444;
   display: block;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px black;
   padding: 30px;
   overflow: hidden;
   position: relative;
@@ -74,9 +69,10 @@ form>div input[type="text"], form>div input[type="number"], form>div input[type=
   width: 100%;
   display: block;
   border: 0px solid black;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid grey;
   transition: border 0.5s;
   height: 30px;
+  background-color: transparent;
 }
 form>div input[type="text"]:focus, form>div input[type="number"]:focus, form>div input[type="email"]:focus, form>div input[type="password"]:focus {
   border-bottom: 2px solid #cecece;
@@ -116,6 +112,8 @@ div.campeonatos {
   display: block;
   width: 100%;
   overflow:hidden;
+  padding-left: 30px;
+  margin-left: -30px;
 }
 div.aux_camp {
   width: 99999px;
@@ -135,11 +133,11 @@ div.campeonato div.imagem {
   height: 300px;
   position: relative;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px gray;
+  box-shadow: 0px 0px 0px black;
   transition: box-shadow 0.5s;
 }
 div.campeonato a:hover div.imagem {
-  box-shadow: 5px 5px 5px gray;
+  box-shadow: 0px 0px 20px black;
 }
 div.campeonato div.imagem img {
   min-width: 100%;
@@ -203,6 +201,28 @@ ul.lista_chaves li {
   display: block;
   position: relative;
 }
+ul.lista_chaves .coluna_chave:first-child li {
+  margin: 10px 0px 30px;
+}
+ul.lista_chaves li:last-child {
+  margin: 10px 0px 10px;
+  display: block;
+  position: relative;
+}
+ul.lista_chaves li div.chave {
+  position: relative;
+}
+
+ul.lista_chaves li div.chave {
+  background-color: #dac972;
+  width: 200px;
+  text-align: center;
+  color: black;
+  padding: 20px;
+  margin: 10px 0px;
+  border-radius: 10px;
+}
+/*
 ul.lista_chaves li .linha_v {
   height: 71px;
   width: 3px;
@@ -221,18 +241,6 @@ ul.lista_chaves li .linha_h {
   top: 50%;
   transform: translateY(-50%);
 }
-ul.lista_chaves li div.chave {
-  position: relative;
-}
-ul.lista_chaves li div.chave {
-  background-color: #dac972;
-  width: 200px;
-  text-align: center;
-  color: black;
-  padding: 20px;
-  margin: 10px 0px;
-  border-radius: 10px;
-}
 ul.lista_chaves li div.chave .linha {
   width: 60px;
   height: 3px;
@@ -243,7 +251,42 @@ ul.lista_chaves li div.chave .linha {
   top: 50%;
   transform: translateY(-50%);
 }
+*/
 
+ul.lista_chaves li div.chave .linha {
+  width: 60px;
+  height: 3px;
+  background-color: #dac972;
+  display: block;
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ul.lista_chaves li div.chave .quadrado {
+  width: 100px;
+  height: 67px;
+  position: absolute;
+  border: 3px solid #dac972;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -162px;
+  border-left: 0px solid black;
+}
+ul.lista_chaves {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.coluna_chave {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 120px;
+}
+
+.coluna_chave:first-child {
+  margin-left: 0px;
+}
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
     cursor: pointer;
@@ -251,9 +294,8 @@ ul.lista_chaves li div.chave .linha {
     border: none;
     outline: none;
     transition: 0.4s;
-    background-color: white;
+    background-color: #444444;
 }
-
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
     background-color: #f0f0f0;
@@ -279,8 +321,8 @@ ul.lista_chaves li div.chave .linha {
   display: inline-block;
   padding: 30px;
   margin: 0px 10px;
-  background-color: white;
-  box-shadow: 0px 0px 5px grey;
+  background-color: #444444;
+  box-shadow: 0px 0px 5px black;
   font-size: 50px;
   font-weight: 100;
   transition: background 0.5s, box-shadow 0.5s;
@@ -336,7 +378,7 @@ form>div#times .time>button:nth-of-type(odd) {
   border: 0px;
   cursor: pointer;
   transform: translateX(-45px);
-  background-color: #f0f0f0;
+  background-color: #696868;
   border-radius: 50%;
 }
 form>div#times .time>button:nth-of-type(even) {
@@ -345,7 +387,7 @@ form>div#times .time>button:nth-of-type(even) {
   bottom: -45px;
   height: 40px;
   width: 40px;
-  background-color: #f0f0f0;
+  background-color: #696868;
   border-radius: 50%;
   border: 0px;
   cursor: pointer;
