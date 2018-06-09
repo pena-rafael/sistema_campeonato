@@ -59,8 +59,8 @@ if(isset($_GET["campeonato"])){
               $chaves = "SELECT * from chaves WHERE id_campeonato = $id_campeonato";
               $busca_chaves = mysqli_query($conexao,$chaves);
             }
-            echo "Chaves";
-            echo "<ul>";
+            echo "<h3>Chaves</h3>";
+            echo "<ul class='lista_chaves'>";
             foreach($busca_chaves as $i=>$v){
               $time1 = busca("times", "nome", "id=".$v["time1"]);
               $time2 = busca("times", "nome", "id=".$v["time2"]);
@@ -75,25 +75,20 @@ if(isset($_GET["campeonato"])){
 
               echo "<li>";
               echo "<div class='chave time1'>";
-              echo "<button class='accordion'>$time1</button>";
-              echo "<div class='panel'>";
-              foreach($busca_jogadores1 as $i=>$v){
-                echo "<div class='jogador'> ".$v["Nome"]."</div>";
-              }
-              echo "</div>";
+              echo "$time1";
+              echo "<div class='linha'></div>";
               echo "</div>";
               echo "<div class='chave time2'>";
-              echo "<button class='accordion'>$time2</button>";
-              echo "<div class='panel'>";
-              foreach($busca_jogadores2 as $i=>$v){
-                echo "<div class='jogador'> ".$v["Nome"]."</div>";
-              }
+              echo "$time2";
+              echo "<div class='linha'></div>";
               echo "</div>";
-              echo "</div>";
+              echo "<div class='linha_v'></div>";
+              echo "<div class='linha_h'></div>";
               echo "</li>";
             }
             echo "</ul>";
           ?>
+          <a href="cadastrar_partida.php?campeonato=<?php echo $_GET["campeonato"]; ?>">Cadastrar partida</a>
         </div>
       </content>
     </div>
@@ -102,23 +97,3 @@ if(isset($_GET["campeonato"])){
 }
 include("rodape.php");
 ?>
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-</script>
