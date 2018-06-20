@@ -1,5 +1,4 @@
 <?php
-$content = false;
 include("funcoes.php");
 include("cabecalho.php");
 if(isset($_GET["campeonato"])){
@@ -29,9 +28,20 @@ if(isset($_GET["campeonato"])){
     $busca_chaves = mysqli_query($conexao,$chaves);
 ?>
     <div class="ver_campeonato">
-      <div class="imagem" style="background-image:url('teste.jpg')">
-      </div>
-      <content>
+      <input id="tab1" type="radio" name="tabs" checked>
+      <label for="tab1" class="label_tab">Informações sobre o campeonato</label>
+
+      <input id="tab2" type="radio" name="tabs">
+      <label for="tab2" class="label_tab">Times</label>
+
+      <input id="tab3" type="radio" name="tabs">
+      <label for="tab3" class="label_tab">Chaves</label>
+      <!--<div class="imagem" style="background-image:url('teste.jpg')">
+      </div>-->
+
+      <!--<content>-->
+      <section id="content1">
+        <img src="teste.jpg" style="width: 100%;">
         <div class="titulo">
           <h2> <?php echo $titulo; ?> </h2>
         </div>
@@ -41,6 +51,8 @@ if(isset($_GET["campeonato"])){
           } else {
             echo "Suíço";
           } ?></p>
+        </section>
+        <section id="content2">
           <h3>Times</h3>
           <table>
             <thead>
@@ -58,59 +70,12 @@ if(isset($_GET["campeonato"])){
               ?>
             </tbody>
           </table>
-          <?php
-            if(mysqli_num_rows($busca_chaves)==0){
-              fazer_chaves($id_campeonato);
-              $chaves = "SELECT * from chaves WHERE id_campeonato = $id_campeonato";
-              $busca_chaves = mysqli_query($conexao,$chaves);
-            }
-            echo "<h3>Chaves</h3>";
-            echo "<ul class='lista_chaves'>";
-            $contador = 0;
-
-            foreach($busca_chaves as $i=>$v){
-              $time1 = busca("times", "nome", "id=".$v["time1"]);
-              $time2 = busca("times", "nome", "id=".$v["time2"]);
-              if($contador==0) {
-                echo "<div class='coluna_chave'>";
-              }
-              if($time1!=$time2) {
-                echo "<li>";
-                echo "<div class='chave time1'>";
-                echo "$time1";
-                echo "<div class='linha'></div>";
-                echo "<div class='quadrado'></div>";
-                echo "</div>";
-                echo "<div class='chave time2'>";
-                echo "$time2";
-                echo "<div class='linha'></div>";
-                echo "<div class='quadrado'></div>";
-                echo "</div>";
-                echo "</li>";
-              } else {
-                echo "<li>";
-                echo "<div class='chave time1'>";
-                echo "$time1";
-                echo "<div class='linha'></div>";
-                echo "<div class='quadrado'></div>";
-                echo "</div>";
-                echo "</li>";
-              }
-              $contador+=2;
-              if($contador>=$num_times) {
-                $contador = 0;
-                $num_times = $num_times/2;
-                $num_times = ceil($num_times);
-                echo "</div>";
-              }
-            }
-            echo "</div>";
-            echo "</ul>";
-          ?>
-          <a href="cadastrar_partida.php?campeonato=<?php echo $_GET["campeonato"]; ?>">Cadastrar partida</a>
-        </div>
-      </content>
-    </div>
+        </section>
+        <section id="content3">
+          <?php include("includes/mostra_chaves.php"); ?>
+        </section>
+      </div>
+      <!--</content>-->
 <?php
   }
 }
