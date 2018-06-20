@@ -124,7 +124,7 @@ function cadastro_campeonato($nome_campeonato, $tipo, $id_usuario) {
 	$busca = mysqli_query($conexao, $sql);
 }
 
-function cadastro_time($nome_time, $jogadores) {
+function cadastro_time($nome_time) {
 	$conexao = conexao();
 
 	$id_campeonato = maior_id("campeonato");
@@ -137,7 +137,7 @@ function cadastro_time($nome_time, $jogadores) {
 	$executa_time = mysqli_query($conexao, $add_time);
 	$executa_participa = mysqli_query($conexao, $add_participa);
 
-	foreach($jogadores as $i=>$v) {
+	/*foreach($jogadores as $i=>$v) {
 		$id_jogador = maior_id("jogador");
 		$id_jogador++;
 
@@ -146,7 +146,7 @@ function cadastro_time($nome_time, $jogadores) {
 
 		$executa_jogador = mysqli_query($conexao, $add_jogador);
 		$executa_faz_parte = mysqli_query($conexao, $add_faz_parte);
-	}
+	}*/
 }
 
 function fazer_chaves($id_campeonato){
@@ -214,7 +214,7 @@ function busca($tabela,$coluna,$condicao){
 	return($resultado);
 }
 
-function verificacao(){	
+function verificacao(){
 	if(!isset ($_SESSION["usuario"])){
 		header("Location:erroAutentica.php");
 	}

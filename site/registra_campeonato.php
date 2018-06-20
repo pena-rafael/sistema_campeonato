@@ -10,8 +10,8 @@ if(isset($_POST["tipo"])){
   $id_usuario = $_SESSION["usuario"];
   cadastro_campeonato($nome_campeonato, $tipo, $id_usuario);
   foreach($_POST["nome_time"] as $i=>$v) {
-    $jogadores = $_POST["nome_jogador".$i];
-    cadastro_time($v, $jogadores);
+    //$jogadores = $_POST["nome_jogador".$i];
+    cadastro_time($v);
   }
   echo "Cadastro feito com sucesso!";
 }

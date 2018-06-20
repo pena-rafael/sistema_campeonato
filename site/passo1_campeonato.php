@@ -16,8 +16,18 @@ if(isset($_GET["tipo"])){
         <input type="text" max="100" name="nome_campeonato"/>
       </div>
 	  <div>
-        <label> Logo do Campeonato: </label>
-        <input type="file" name="logo_campeonato"/>
+        <label> Quantidade de times: </label>
+        <select name="quantidade_times">
+          <option>4</option>
+          <option>8</option>
+          <option>16</option>
+          <option>32</option>
+          <option>64</option>
+          <option>128</option>
+          <option>256</option>
+          <option>512</option>
+          <option>1024</option>
+        </select>
       </div>
       <input type="hidden" value="<?php echo $_GET["tipo"]; ?>" name="tipo" />
       <input type="submit" value="Próximo"/>
