@@ -27,6 +27,8 @@ if(isset($_GET["campeonato"])){
     $chaves = "SELECT * from chaves WHERE id_campeonato = $id_campeonato";
     $busca_chaves = mysqli_query($conexao,$chaves);
 ?>
+  <?php include("includes/campeonatos.php"); ?>
+  <div class="o_campeonato">
     <div class="ver_campeonato">
       <input id="tab1" type="radio" name="tabs" checked>
       <label for="tab1" class="label_tab">Informações sobre o campeonato</label>
@@ -75,6 +77,7 @@ if(isset($_GET["campeonato"])){
           <?php include("includes/mostra_chaves.php"); ?>
         </section>
       </div>
+    </div>
       <!--</content>-->
 <?php
   }

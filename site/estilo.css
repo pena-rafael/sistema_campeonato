@@ -142,68 +142,26 @@ div.campeonatos {
   margin-left: -30px;
 }
 div.aux_camp {
-  width: 99999px;
-  max-width: 99999px;
-  padding: 0px 15px;
-  margin: 0px -30px;
-}
-div.campeonato {
-  display: inline-block;
-  width: 300px;
-  padding: 0px 15px;
-  margin-top: 10px;
-}
-div.campeonato div.imagem {
-  overflow: hidden;
-  width:300px;
-  height: 300px;
-  position: relative;
-  border-radius: 50%;
-  box-shadow: 0px 0px 0px black;
-  transition: box-shadow 0.5s;
-}
-div.campeonato a:hover div.imagem {
-  box-shadow: 0px 0px 20px black;
-}
-div.campeonato div.imagem img {
-  min-width: 100%;
-  max-height: 300px;
-  width: auto;
-  max-width: 999999px;
+  width: 200px;
+  border-right: 2px solid #676767;
+  margin-top: -30px;
+  margin-bottom: -40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+}
+div.o_campeonato {
+  padding-left: 280px;
 }
 div.campeonato div.titulo {
   text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0px 0px 0px white;
+  transition: 0.5s;
 }
-.campeonatos button {
-  position: absolute;
-  background-color: transparent;
-  opacity: 0.4;
-  top: 50%;
-  z-index: 1;
-  transition: opacity 0.5s;
-  transform: translateY(-50%);
-  cursor: pointer;
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-}
-.campeonatos button:hover {
-  opacity: 0.8;
-}
-.campeonatos button.direita {
-  right: 15px;
-  border-left: 20px solid black;
-  border-right: 0px solid black;
-}
-.campeonatos button.esquerda {
-  left: 15px;
-  border-right:20px solid black;
-  border-left: 0px solid black;
+div.campeonato a:hover div.titulo {
+  text-shadow: 0px 0px 10px white;
 }
 /* Ver o campeonato */
 .ver_campeonato .imagem {
