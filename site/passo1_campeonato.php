@@ -16,6 +16,10 @@ if(isset($_GET["tipo"])){
         <input type="text" max="100" name="nome_campeonato"/>
       </div>
 	  <div>
+        <label> Descrição do Campeonato: </label>
+        <textarea name="desc_campeonato"> </textarea>
+      </div>
+	  <div>
         <label> Quantidade de times: </label>
         <select name="quantidade_times">
           <option>4</option>

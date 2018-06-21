@@ -21,6 +21,7 @@ if(isset($_POST["tipo"])){
 			<?php } ?>
       <input type="hidden" value="<?php echo $_POST["tipo"]; ?>" name="tipo" />
       <input type="hidden" value="<?php echo $_POST["nome_campeonato"]; ?>" name="nome_campeonato" />
+      <input type="hidden" value="<?php echo $_POST["desc_campeonato"]; ?>" name="desc_campeonato" />
       <input type="submit" value="Próximo"/>
     </form>
   <?php
