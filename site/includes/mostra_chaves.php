@@ -22,7 +22,7 @@
       }
       $time1 = busca("times", "nome", "id=".$v["time1"]);
       $time2 = busca("times", "nome", "id=".$v["time2"]);
-      if($time1!=$time2) {
+      if($v["time1"]!=$v["time2"]) {
         ?>
 
       		<li class="game game-top <?php if($vencedor==1) {echo "winner";} ?>"><?php echo $time1; ?></li>
@@ -52,5 +52,9 @@
       }
     }
     echo "</main>";
-  ?>
-  <a href="cadastrar_partida.php?campeonato=<?php echo $_GET["campeonato"]; ?>">Cadastrar partida</a>
+    if(testar_partidas($id_campeonato)){
+    ?>
+      <a href="cadastrar_partida.php?campeonato=<?php echo $_GET["campeonato"]; ?>">Cadastrar partida</a>
+    <?php
+    }
+    ?>

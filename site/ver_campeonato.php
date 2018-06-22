@@ -14,6 +14,7 @@ if(isset($_GET["campeonato"])){
     foreach($busca as $i => $v){
       $titulo = $v["nome"];
       $tipo = $v["tipo"];
+      $desc_campeonato = $v["desc_campeonato"];
     }
     $times = "SELECT t.nome as 'nome' from times as t, participa as p WHERE t.id = p.id_time and p.id_campeonato = $id_campeonato";
     //echo $times;
@@ -43,7 +44,6 @@ if(isset($_GET["campeonato"])){
 
       <!--<content>-->
       <section id="content1">
-        <img src="teste.jpg" style="width: 100%;">
         <div class="titulo">
           <h2> <?php echo $titulo; ?> </h2>
         </div>
@@ -53,31 +53,33 @@ if(isset($_GET["campeonato"])){
           } else {
             echo "Suíço";
           } ?></p>
-        </section>
-        <section id="content2">
-          <h3>Times</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Nome</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              foreach($busca_times as $i=>$v) {
-                echo "<tr>";
-                echo "<td>".$v["nome"]."</td>";
-                echo "</tr>";
-              }
-              ?>
-            </tbody>
-          </table>
-        </section>
-        <section id="content3">
-          <?php include("includes/mostra_chaves.php"); ?>
-        </section>
-      </div>
+          <p><?php echo $desc_campeonato; ?></p>
+        </div>
+      </section>
+      <section id="content2">
+        <h3>Times</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            foreach($busca_times as $i=>$v) {
+              echo "<tr>";
+              echo "<td>".$v["nome"]."</td>";
+              echo "</tr>";
+            }
+            ?>
+          </tbody>
+        </table>
+      </section>
+      <section id="content3">
+        <?php include("includes/mostra_chaves.php"); ?>
+      </section>
     </div>
+  </div>
       <!--</content>-->
 <?php
   }

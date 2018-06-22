@@ -148,6 +148,7 @@ div.campeonatos {
   margin-left: -30px;
 }
 div.aux_camp {
+  min-height: 100%;
   width: 200px;
   border-right: 2px solid #676767;
   margin-top: -30px;

@@ -110,7 +110,7 @@ function sair() {
 	echo "<script>location.reload();</script>";
 }
 
-function cadastro_campeonato($nome_campeonato, $tipo, $id_usuario) {
+function cadastro_campeonato($nome_campeonato, $tipo, $id_usuario, $desc_campeonato) {
 	$conexao = conexao();
 
 	$maxid = "SELECT MAX(id) as 'max' FROM campeonato";
@@ -119,7 +119,7 @@ function cadastro_campeonato($nome_campeonato, $tipo, $id_usuario) {
 		$max = $v["max"];
 	}
 	$max = $max + 1;
-	$sql = "INSERT INTO campeonato(id, nome, tipo, id_usuario) VALUES($max, '$nome_campeonato', $tipo, $id_usuario)";
+	$sql = "INSERT INTO campeonato(id, nome, tipo, id_usuario, desc_campeonato) VALUES($max, '$nome_campeonato', $tipo, $id_usuario, '$desc_campeonato')";
 	//echo $sql;
 	$busca = mysqli_query($conexao, $sql);
 }
@@ -220,4 +220,26 @@ function verificacao(){
 	}
 }
 
+function testar_partidas($id) {
+	$conexao = conexao();
+	$sql_num_times = "SELECT * FROM participa WHERE id_campeonato=".$id;
+	$busca_qtd_times = mysqli_query($conexao, $sql_num_times);
+	$qtd_times = mysqli_num_rows($busca_qtd_times);
+	/*foreach($busca_qtd_times as $i=>$v) {
+		$qtd_times = $v["qtd"];
+	}*/
+
+	$sql_partidas = "SELECT * FROM partidas WHERE id_campeonato=".$id;
+	//echo $sql_partidas;
+	$busca_qtd_partidas = mysqli_query($conexao, $sql_partidas);
+	$qtd_partidas = mysqli_num_rows($busca_qtd_partidas);
+	/*foreach($busca_qtd_partidas as $i=>$v) {
+		$qtd_partidas = $v["qtd"];
+	}*/
+	if($qtd_times-1!=$qtd_partidas) {
+		return(true);
+	} else {
+		return(false);
+	}
+}
 ?>

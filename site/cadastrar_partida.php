@@ -81,8 +81,10 @@ if(isset($_GET["campeonato"])){
           WHERE id_campeonato=$campeonato AND id=$chave";
   $resultado = mysqli_query($conexao, $sql);
 
-  echo "Partida adicionada com sucesso! <a href='ver_campeonato.php?campeonato=$campeonato'>Voltar para o campeonato</a> ou <a href='cadastrar_partida.php?campeonato=$campeonato'>Adicionar nova partida</a>";
-
+  echo "Partida adicionada com sucesso! <a href='ver_campeonato.php?campeonato=$campeonato'>Voltar para o campeonato</a>";
+  if(testar_partidas($campeonato)) {
+    echo " ou <a href='cadastrar_partida.php?campeonato=$campeonato'>Adicionar nova partida</a>";
+  }
   /* Quando já tiver todas as chaves com vencedores */
   $sql = "SELECT * FROM chaves WHERE id_campeonato=$campeonato AND vencedor is null";
   $resultado = mysqli_query($conexao, $sql);
