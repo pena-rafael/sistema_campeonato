@@ -48,6 +48,9 @@ if(permissao_campeonato($_GET["campeonato"])) {
   echo "Permissão negada";
 }
 } else if(isset($_POST["partida"])) {
+  if($_POST["ptime1"]==$_POST["ptime2"]) {
+    echo "<script>window.history.back()</script>";
+  }else {
   $conexao = conexao();
 
   $campeonato = $_POST["id_campeonato"];
@@ -136,6 +139,7 @@ if(permissao_campeonato($_GET["campeonato"])) {
                     VALUES($campeonato,".$vetor["tipo"].",  $time1, $time2, $time1, $max)";
       $add_chave_sql = mysqli_query($conexao, $add_chave);
   	}
+  }
   }
 }
 include("rodape.php");
