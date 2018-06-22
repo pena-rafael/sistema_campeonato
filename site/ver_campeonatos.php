@@ -20,12 +20,6 @@ if($linhas > 0){
 	echo "Não ha campeonatos cadastrados";
 }
   ?>
-
-  <script>
-    var min_height = document.getElementsByClassName("aux_camp")[0].clientHeight;
-    min_height-=60;
-    document.getElementsByTagName("content")[0].style.minHeight = min_height;
-  </script>
 <?php
 include("rodape.php");
 ?>
