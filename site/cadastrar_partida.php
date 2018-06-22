@@ -1,8 +1,10 @@
 <?php
 include("funcoes.php");
+if(permissao()){
 include("cabecalho.php");
 
 if(isset($_GET["campeonato"])){
+if(permissao_campeonato($_GET["campeonato"])) {
   $id_campeonato = $_GET["campeonato"];
   $conexao = conexao();
   $sql = "SELECT * from chaves WHERE $id_campeonato=id_campeonato AND vencedor is NULL";
@@ -42,6 +44,9 @@ if(isset($_GET["campeonato"])){
   mudarnome();
 </script>
 <?php
+} else {
+  echo "Permissão negada";
+}
 } else if(isset($_POST["partida"])) {
   $conexao = conexao();
 
@@ -134,3 +139,6 @@ if(isset($_GET["campeonato"])){
   }
 }
 include("rodape.php");
+} else {
+  header("location: index.php");
+}

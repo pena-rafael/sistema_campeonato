@@ -1,6 +1,6 @@
 <?php
 include("funcoes.php");
-verificacao();
+if(permissao()) {
 include("cabecalho.php");
 
 if(isset($_GET["tipo"])){
@@ -39,4 +39,7 @@ if(isset($_GET["tipo"])){
   <?php
 }
 include("rodape.php");
+} else {
+  header("location: index.php");
+}
 ?>

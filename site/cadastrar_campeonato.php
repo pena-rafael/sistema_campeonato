@@ -1,6 +1,7 @@
 <?php
 $content = 0;
 include("funcoes.php");
+if(permissao()) {
 include("cabecalho.php");
 ?>
 <div class = "cadastrar_campeonato">
@@ -8,4 +9,7 @@ include("cabecalho.php");
 </div>
 <?php
 include("rodape.php");
+} else{
+  header("location: index.php");
+}
 ?>

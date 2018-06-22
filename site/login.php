@@ -1,5 +1,6 @@
 <?php
 include("funcoes.php");
+if(!permissao()) {
 if(isset($_POST["usuario"])) {
 	$autentica = autentica();
 	if($autentica) {
@@ -33,4 +34,7 @@ if(isset($_POST["usuario"])) {
 <?php
 }
 include("rodape.php");
+} else {
+	header("location: index.php");
+}
 ?>

@@ -1,5 +1,6 @@
 <?php
 include("funcoes.php");
+if(permissao()) {
 include("cabecalho.php");
 $usuario = $_SESSION["usuario"];
 $conexao = conexao();
@@ -22,4 +23,7 @@ if($linhas > 0){
   ?>
 <?php
 include("rodape.php");
+} else {
+  header("location: index.php");
+}
 ?>

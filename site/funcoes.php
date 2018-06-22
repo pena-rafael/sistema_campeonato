@@ -1,5 +1,23 @@
 <?php
 session_start();
+function permissao() {
+	if(isset($_SESSION["usuario"])) {
+		return(true);
+	} else {
+		return(false);
+	}
+}
+function permissao_campeonato($id) {
+	$conexao = conexao();
+	$sql = "SELECT * FROM campeonato WHERE id_usuario=".$_SESSION["usuario"]." AND id=$id";
+	$busca = mysqli_query($conexao, $sql);
+
+	if(mysqli_num_rows($busca)==0) {
+		return(false);
+	} else {
+		return(true);
+	}
+}
 function conexao() {
 	$conexao = mysqli_connect("localhost", "rafael", "123");
 	mysqli_select_db($conexao, "champions_maker");
@@ -212,12 +230,6 @@ function busca($tabela,$coluna,$condicao){
 	}
 
 	return($resultado);
-}
-
-function verificacao(){
-	if(!isset ($_SESSION["usuario"])){
-		header("Location:erroAutentica.php");
-	}
 }
 
 function testar_partidas($id) {

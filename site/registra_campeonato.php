@@ -1,6 +1,6 @@
 <?php
 include("funcoes.php");
-verificacao();
+if(permissao()) {
 include("cabecalho.php");
 
 if(isset($_POST["tipo"])){
@@ -17,4 +17,7 @@ if(isset($_POST["tipo"])){
   echo "Cadastro feito com sucesso!";
 }
 include("rodape.php");
+} else {
+  header("location: index.php");
+}
 ?>
