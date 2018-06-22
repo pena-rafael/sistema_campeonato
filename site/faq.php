@@ -20,65 +20,57 @@
 		<h3 align="center">Perguntas Frequentes</h3><br/>
 		<div id="faq">
 
-			<h3 class="faq1">1. Como crio um campeonato?</h3>
+			<b><h3 class="faq1">1. Como crio um campeonato?</h3></b>
 			<div>
 				<p>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No menu, que se encontra no topo do site, você deve clicar na aba <a class="faq2" href="cadastrar_campeonato.php" >
-					“Cadastro Campeonato”</a>. Nessa página você escolherá o tipo de campeonato que você quer criar podendo ser suíço ou mata-mata.
-					Após a escolha do tipo de campeonato você poderá dar um nome a ele, criar times e caso queira, adicionar jogadores aos times.
-					Na aba <a class="faq2" href="ver_campeonatos.php" >“Ver Meus Campeonatos”</a> você poderá visualizar todos seus campeonatos já criados,
-					incluindo aqueles que já foram finalizados.
+					“Cadastro Campeonato”</a>. Nessa página você escolherá o tipo de campeonato que deseja quer criar. Após a escolha do tipo de campeonato você poderá dar um nome a ele, criar times e caso queira, adicionar uma descrição ao campeonato. Na aba <a class="faq2" href="ver_campeonatos.php" >“Ver Meus Campeonatos”</a> você poderá visualizar todos seus campeonatos já criados, incluindo aqueles que já foram finalizados.
 				</p>
 			</div>
 
-			<h3 class="faq1">2. Posso criar um campeonato de qualquer esporte?</h3>
+			<b><h3 class="faq1">2. Posso criar um campeonato de qualquer esporte?</h3></b>
 			<div>
 				<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;É possível criar um campeonato de qualquer modalidade, desde campeonatos esportivos
-					até disputas de baralhos, jogos de tabuleiro, jogos de cartas ou qualquer disputa competitiva.
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;É possível criar um campeonato de qualquer modalidade, desde campeonatos esportivos até disputas de cartas, jogos de tabuleiro ou qualquer disputa competitiva.
 				</p>
 			</div>
 
-			<h3 class="faq1">3. Existe a possibilidade de escolher qual tipo de campeonato eu quero?</h3>
+			<b><h3 class="faq1">3. Existe a possibilidade de escolher qual tipo de campeonato eu quero?</h3></b>
 			<div>
 				<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sim, temos duas opções de campeonato: Suiço e Mata-mata. A diferenças entre eles
-					é que o Suíço possui fases de grupos, além de jogos de ida e volta, com disputa de chave dos vencedores
-					(quem ganhou encara quem ganhou) e chave dos perdedores (quem perdeu encara quem perdeu). Já o Mata-mata é composto
-					por partidas únicas, sem decisão de 3º e 4º lugar, sendo que o time ou jogador é eliminado assim que perder.
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Infelizmente não. Temos apenas uma opção de campeonato: o Mata-Mata. Que é o campeonato composto por partidas únicas, sem decisão de 3º e 4º lugar, sendo que o time ou jogador é eliminado assim que perder.
 				</p>
 			</div>
 
-			<h3 class="faq1">4. Posso alterar o nome do meu campeonato?</h3>
+			<!-- <b><h3 class="faq1">4. Posso alterar o nome do meu campeonato?</h3></b>
 			<div>
 				<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pode sim, é só acessar a página <a class="faq2" href="ver_campeonatos.php" >“Ver meus Campeonatos”</a> e
-					editar o nome dado ao campeonato.
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não.
 				</p>
-			</div>
+			</div> -->
 
-			<h3 class="faq1">5. Posso cadastrar times no meu campeonato?</h3>
+			<b><h3 class="faq1">4. Posso cadastrar times no meu campeonato?</h3></b>
 			<div>
 				<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pode sim, logo após nomear seu campeonato você poderá nomear um ou mais times.
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pode sim, logo após nomear seu campeonato você poderá nomear quatro ou mais times.
 				</p>
 			</div>
 
-			<h3 class="faq1">6. Posso cadastrar os participantes do meu campeonato?</h3>
+			<!--<b><h3 class="faq1">5. Posso cadastrar os participantes do meu campeonato?</h3></b>
 			<div>
 				<p>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pode sim, após nomear um time você pode adicionar os participantes e/ou jogadores.
 				</p>
-			</div>
+			</div>-->
 
-			<h3 class="faq1">7. Quantos campeonatos posso cadastrar?</h3>
+			<b><h3 class="faq1">5. Quantos campeonatos posso cadastrar?</h3></b>
 			<div>
 				<p>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Você pode cadastrar quantos campeonatos quiser.
 				</p>
 			</div>
 
-			<h3 class="faq1">8. Posso visualizar meus campeonatos?</h3>
+			<b><h3 class="faq1">6. Posso visualizar meus campeonatos?</h3></b>
 			<div>
 				<p>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Você pode visualizar seus campeonatos na página <a class="faq2" href="ver_campeonatos.php" >"Ver Meus Campeonatos”</a>.
